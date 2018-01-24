@@ -6,7 +6,13 @@ const BotCollection = props => {
   console.log('bot collection', props);
 
   let bots = props.bots.map((b, i)=> {
-      return <BotCard handleAddBot={props.handleAddBot} key={i} bot={b} />
+      return (
+        <BotCard
+          handleClickBot={props.handleClickBot}
+          handleAddBot={props.handleAddBot}
+          key={i}
+          bot={b} />
+      )
   })
 
   // console.log('mapped bots', bots);

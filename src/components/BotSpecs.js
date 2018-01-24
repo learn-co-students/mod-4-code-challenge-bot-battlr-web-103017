@@ -1,7 +1,7 @@
 import React from "react";
 
 const BotSpecs = props => {
-
+  console.log('bot specs', props);
   let { bot, seeAll, enlist } = props;
 
   let botType;
@@ -22,6 +22,7 @@ const BotSpecs = props => {
 
   return (
     <div className="ui segment">
+      <h1>Hey I'm a Bot!</h1>
       <div className="ui two column centered grid">
         <div className="row">
           <div className="four wide column">

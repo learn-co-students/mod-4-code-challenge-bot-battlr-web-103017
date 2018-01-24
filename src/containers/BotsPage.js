@@ -10,7 +10,8 @@ class BotsPage extends React.Component {
 
     this.state = {
       bots:[],
-      botArmy:[]
+      botArmy:[],
+      currentBot:'',
     }
   }
 
@@ -22,6 +23,12 @@ class BotsPage extends React.Component {
       }))
   }
 
+  handleClickBot = (bot) => {
+    this.setState({
+      currentBot: bot
+    })
+  }
+
   handleAddBot = (bot) => {
     this.setState({
       botArmy: [...this.state.botArmy, bot]
@@ -29,13 +36,18 @@ class BotsPage extends React.Component {
   }
 
   render() {
-    console.log('Bots Page State', this.state.botArmy);
+    console.log('Bots Page State', this.state.currentBot);
     return (
       <div>
+        {this.state.currentBot &&
+          <BotSpecs bot={this.state.currentBot}/>
+        }
         <YourBotArmy botArmy={this.state.botArmy}/>
         <BotCollection
           bots={this.state.bots}
+          handleClickBot={this.handleClickBot}
           handleAddBot={this.handleAddBot} />
+
       </div>
     );
   }
