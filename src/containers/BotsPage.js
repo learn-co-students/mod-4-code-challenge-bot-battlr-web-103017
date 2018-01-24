@@ -2,6 +2,7 @@ import React from "react";
 import YourBotArmy from "./YourBotArmy";
 import BotCollection from "./BotCollection";
 import BotSpecs from "../components/BotSpecs";
+import Search from "../components/Search";
 
 class BotsPage extends React.Component {
   constructor(){
@@ -26,9 +27,17 @@ class BotsPage extends React.Component {
       () =>  console.log("after set state", this.state.army))
   }
 
+  handleChange = (e) => {
+    const value = e.target.value
+    const filtered = this.state.bots.filter(b => (b.name.toLowerCase().includes(value)))
+    console.log("value", value, "filtered", filtered);
+    this.setState({army: filtered})
+  }
+
   render() {
     return (
       <div>
+        <Search handleChange = {this.handleChange}/>
         <YourBotArmy  army = {this.state.army}/>
         <BotCollection bots = {this.state.bots} handleMyArmy = {this.handleMyArmy}/>
       </div>
