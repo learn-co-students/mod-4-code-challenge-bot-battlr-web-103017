@@ -8,8 +8,9 @@ const YourBotArmy = props => {
     <div className="ui segment inverted olive bot-army">
       <div className="ui five column grid">
         <div className="row bot-army-row">
-          {/*...and here...*/}
-          Your Bot Army
+          Your Bot Army <br></br>
+          {props.clickedBots.map(bot => <BotCard bot={bot} />)}
+
         </div>
       </div>
     </div>
