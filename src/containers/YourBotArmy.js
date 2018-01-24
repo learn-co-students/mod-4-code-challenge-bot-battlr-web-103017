@@ -9,7 +9,7 @@ const YourBotArmy = props => {
       <div className="ui five column grid">
         <div className="row bot-army-row">
           Your Bot Army <br></br>
-          {props.clickedBots.map(bot => <BotCard bot={bot} />)}
+        {props.clickedBots.map(bot => <BotSpecs bot={bot}/>)}
 
         </div>
       </div>

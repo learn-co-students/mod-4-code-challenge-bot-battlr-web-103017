@@ -28,15 +28,25 @@ class BotsPage extends React.Component {
 
     this.setState({
       clickedBots: [bot, ...this.state.clickedBots]
+    }, () => {
+      document.location.href += '/show'
     })
   }
 
+
+
   render() {
     return (
-      <div>
-        <YourBotArmy  clickedBots={this.state.clickedBots}/>
+      <Switch>
+        <Rounte
+          path={"/show"}
+          render={()=> {
+            return (<YourBotArmy  clickedBots={this.state.clickedBots} />)
+          }}
+          />
+
         <BotCollection  bots={this.state.bots} handleChange={this.handleChange}/>
-      </div>
+      </Switch>
     );
   }
 }
